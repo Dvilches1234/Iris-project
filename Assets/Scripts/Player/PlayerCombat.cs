@@ -2,27 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+
+namespace Player
 {
-    [SerializeField]
-    private Animator playerAnimator;
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerCombat : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Attack();
-    }
-
-    void Attack()
-    {
-        if (Input.GetButtonDown("Fire1"))
+        [SerializeField]
+        private Animator playerAnimator;
+        // Start is called before the first frame update
+        void Start()
         {
-            playerAnimator.SetTrigger("Attack1");
+        
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            Attack();
+        }
+
+        void Attack()
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                playerAnimator.SetTrigger("Attack1");
+            }
         }
     }
+   
 }
