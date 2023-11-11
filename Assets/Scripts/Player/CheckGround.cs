@@ -21,6 +21,7 @@ namespace Player
             {
                 playerMovement.CheckGround(true);
             }
+            
         }
 
         private void OnTriggerExit(Collider other)
