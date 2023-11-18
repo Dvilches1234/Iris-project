@@ -1,0 +1,5 @@
+newmtl EarthPlatformMaterial
+map_Kd GridBox_Default.png
+Kd 0.6415094 0.4084936 0
+d 1
+

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace  Player
@@ -15,9 +16,12 @@ namespace  Player
         private Transform playerTransform;
         [SerializeField]
         private Transform camTransform;
+        
 
         
         [Header("Movement")]
+        [SerializeField]
+        private string[] walkablesTags;
         [SerializeField]
         private float movementSpeed = 7f;
         [SerializeField]
@@ -26,6 +30,8 @@ namespace  Player
         private float movementOnAirSpeed = 3f;*/
         [SerializeField]
         private float jumpForce = 7f;
+        [SerializeField]
+        private float gravity = 10f;
 
         
         private Vector3 input;
@@ -50,6 +56,7 @@ namespace  Player
             Move();
             Jump();
             CheckFalling();
+            //Gravity();
         }
 
         void Move()
@@ -84,11 +91,19 @@ namespace  Player
             }
         }
 
+        void Gravity()
+        {
+            if (!isGrounded)
+            {
+                playerRigidBody.velocity +=  gravity* Time.deltaTime*Vector3.down;
+            }
+        }
         void CheckFalling()
         {
             if (playerRigidBody.velocity.y < 0)
             { 
                 playerAnimator.SetTrigger("Falling");
+                
             }
         }
 
@@ -97,7 +112,10 @@ namespace  Player
         { 
             isGrounded = value;
             playerAnimator.SetBool("isGrounded", value);
-            Debug.Log("Grounded changed to: " + value);
+            /*if (value == true)
+            {
+                playerRigidBody.velocity = Vector3.zero;
+            }*/
         }
         public void AddJumpForce()
         {
@@ -106,6 +124,10 @@ namespace  Player
         public float GetJumpForce()
         {
             return jumpForce;
+        }
+        public string[] GetWalkablesTags()
+        {
+            return walkablesTags;
         }
 
 
