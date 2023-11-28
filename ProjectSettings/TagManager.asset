@@ -8,6 +8,9 @@ TagManager:
   - Ground
   - EarthPlatform
   - PointController
+  - AlertText
+  - Key
+  - Lever
   layers:
   - Default
   - TransparentFX

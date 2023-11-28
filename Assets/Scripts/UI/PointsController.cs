@@ -41,9 +41,11 @@ namespace UI
         public void AddKey()
         {
             actualKeys += 1;
+            
             keysText.text = actualKeys + "/" + totalKeys;
             if (actualKeys == totalKeys)
             {
+                
                 gem.SetActive(true);
             }
         }
@@ -56,6 +58,15 @@ namespace UI
             {
                 winText.SetActive(true);
             }
+        }
+
+        public void Reset()
+        {
+            actualKeys = 0;
+            actualGems = 0;
+            
+            keysText.text = actualKeys + "/" + totalKeys;
+            gemsText.text = actualGems + "/" + totalGems;
         }
         
         

@@ -20,17 +20,20 @@ namespace Player
        [SerializeField]
        private LayerMask earthPlatformLayer;
        [Header("EarthPowers")]
-       private float earthPowerMana = 2;
+       [SerializeField]
+       private float earthPowerMana = 1;
        private RaycastHit hit;
 
        private Vector3 direction;
 
        private EarthPlatformController currentEarthPlatform;
+       private GlowAtPoint glowPoint;
        private PlayerResources resources;
        // Start is called before the first frame update
        void Start()
        {
            resources = GetComponent<PlayerResources>();
+           
        }
    
        // Update is called once per frame
@@ -60,8 +63,13 @@ namespace Player
            if (Physics.Raycast(playerBack.position, direction, out hit, range, earthPlatformLayer))
            {
                Vector3 direction2 = hit.transform.position - playerBack.position;
-               currentEarthPlatform = hit.collider.GetComponent<EarthPlatformController>();
-               Debug.DrawRay(playerBack.position, direction2, Color.red);
+               if (currentEarthPlatform == null ||currentEarthPlatform.gameObject != hit.collider.gameObject)
+               {
+                   glowPoint = hit.collider.GetComponent<GlowAtPoint>();
+                   currentEarthPlatform = hit.collider.GetComponent<EarthPlatformController>();
+               }
+               glowPoint.GlowObject();
+               
                if (Input.GetButtonDown("Fire1") && resources.GetCurrentMana() - earthPowerMana >=0 )
                {
                    playerAnimator.SetTrigger("Attack1");

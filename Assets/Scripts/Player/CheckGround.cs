@@ -10,12 +10,17 @@ namespace Player
     {
         // Start is called before the first frame update
         private PlayerMovement playerMovement;
-
+        
         private string[] walkablesTags;
+        private string[] platformTags;
+        private Transform parentTransform;
         void Start()
         {
             playerMovement = GetComponentInParent<PlayerMovement>();
             walkablesTags = playerMovement.GetWalkablesTags();
+            platformTags = playerMovement.GetPlatformTags();
+            parentTransform = playerMovement.GetTransform();
+
         }
 
         private void Update()
@@ -26,9 +31,18 @@ namespace Player
         // Update is called once per frame
         private void OnTriggerEnter(Collider other)
         {
+            
             if (walkablesTags.Contains(other.gameObject.tag) )
             {
                 playerMovement.CheckGround(true);
+            }
+            if (platformTags.Contains(other.gameObject.tag))
+            {
+                parentTransform.parent = other.gameObject.transform;
+            }
+            else
+            {
+                parentTransform.parent = null;
             }
         }
 
@@ -46,6 +60,7 @@ namespace Player
             {
                 playerMovement.CheckGround(false);
             }
+            
         }  
     } 
     

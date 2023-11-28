@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enviorment;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ namespace Player
         private ProgressBar healthProgressBar;
         [SerializeField]
         private ProgressBar manaProgressBar;
+        [SerializeField]
+        private GameController gameController;
 
         private float currentHealth;
         private float currentMana;
@@ -44,6 +47,7 @@ namespace Player
             else
             {
                 currentHealth = 0;
+                gameController.RestartObjects();
             }
             healthPercentage = currentHealth * 100 / totalHealth;
             healthProgressBar.BarValue = healthPercentage;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -16,12 +17,18 @@ namespace  Player
         private Transform playerTransform;
         [SerializeField]
         private Transform camTransform;
+        [SerializeField]
+        private Transform initialCamTransform;
+        [SerializeField]
+        private CinemachineFreeLook freeLook;
         
 
         
         [Header("Movement")]
         [SerializeField]
         private string[] walkablesTags;
+        [SerializeField]
+        private string[] platformTags;
         [SerializeField]
         private float movementSpeed = 7f;
         [SerializeField]
@@ -30,8 +37,7 @@ namespace  Player
         private float movementOnAirSpeed = 3f;*/
         [SerializeField]
         private float jumpForce = 7f;
-        [SerializeField]
-        private float gravity = 10f;
+
 
         
         private Vector3 input;
@@ -47,6 +53,7 @@ namespace  Player
         {
             playerRigidBody = GetComponent<Rigidbody>();
             Cursor.visible = false;
+            freeLook.ForceCameraPosition(initialCamTransform.position, initialCamTransform.rotation);
             
         }
 
@@ -91,13 +98,6 @@ namespace  Player
             }
         }
 
-        void Gravity()
-        {
-            if (!isGrounded)
-            {
-                playerRigidBody.velocity +=  gravity* Time.deltaTime*Vector3.down;
-            }
-        }
         void CheckFalling()
         {
             if (playerRigidBody.velocity.y < 0)
@@ -107,11 +107,12 @@ namespace  Player
             }
         }
 
-
+        
         public void CheckGround(bool value)
         { 
             isGrounded = value;
             playerAnimator.SetBool("isGrounded", value);
+
             /*if (value == true)
             {
                 playerRigidBody.velocity = Vector3.zero;
@@ -128,6 +129,16 @@ namespace  Player
         public string[] GetWalkablesTags()
         {
             return walkablesTags;
+        }
+
+        public string[] GetPlatformTags()
+        {
+            return platformTags;
+        }
+
+        public Transform GetTransform()
+        {
+            return transform;
         }
 
 
