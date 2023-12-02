@@ -42,20 +42,6 @@ namespace Player
            CheckEarthPlatforms();
        }
 
-       void CheckElements()
-       {
-           direction = playerBack.position  - cameraMain.position;
-           if (Physics.Raycast(playerBack.position, direction, out hit, range, earthPlatformLayer))
-           {
-               //Debug.Log(hit.collider.name);
-               Vector3 direction2 = hit.transform.position - playerBack.position; 
-               Debug.DrawRay(playerBack.position, direction2, Color.red);
-               if (Input.GetButtonDown("Fire1"))
-               {
-                   playerAnimator.SetTrigger("Attack1");
-               }
-           }
-       }
 
        void CheckEarthPlatforms()
        {
@@ -70,7 +56,7 @@ namespace Player
                }
                glowPoint.GlowObject();
                
-               if (Input.GetButtonDown("Fire1") && resources.GetCurrentMana() - earthPowerMana >=0 )
+               if (Input.GetButtonDown("Fire2") && resources.GetCurrentMana() - earthPowerMana >=0 )
                {
                    playerAnimator.SetTrigger("Attack1");
                    currentEarthPlatform.ActivateMovement();
