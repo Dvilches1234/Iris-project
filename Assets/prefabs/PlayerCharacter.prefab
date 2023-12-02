@@ -128,7 +128,7 @@ MonoBehaviour:
   - EarthPlatform
   movementSpeed: 10
   turnSmoothTime: 0.1
-  jumpForce: 7.5
+  jumpForce: 8.3
 --- !u!136 &5648856694117978501
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -201,6 +201,7 @@ MonoBehaviour:
   earthPlatformLayer:
     serializedVersion: 2
     m_Bits: 128
+  checkGround: {fileID: 1191747681624051553}
   earthPowerMana: 1
 --- !u!114 &2878993573233242230
 MonoBehaviour:

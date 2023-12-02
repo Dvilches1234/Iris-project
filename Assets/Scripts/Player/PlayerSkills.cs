@@ -19,6 +19,8 @@ namespace Player
        private LayerMask groundLayer;
        [SerializeField]
        private LayerMask earthPlatformLayer;
+        [SerializeField]
+        private CheckGround checkGround; 
        [Header("EarthPowers")]
        [SerializeField]
        private float earthPowerMana = 1;
@@ -45,17 +47,18 @@ namespace Player
 
        void CheckEarthPlatforms()
        {
+            /*
            direction = playerBack.position  - cameraMain.position;
            if (Physics.Raycast(playerBack.position, direction, out hit, range, earthPlatformLayer))
            {
-               Vector3 direction2 = hit.transform.position - playerBack.position;
+               //Vector3 direction2 = hit.transform.position - playerBack.position;
                if (currentEarthPlatform == null ||currentEarthPlatform.gameObject != hit.collider.gameObject)
                {
                    glowPoint = hit.collider.GetComponent<GlowAtPoint>();
                    currentEarthPlatform = hit.collider.GetComponent<EarthPlatformController>();
                }
                glowPoint.GlowObject();
-               
+                Debug.Log("glowing");
                if (Input.GetButtonDown("Fire2") && resources.GetCurrentMana() - earthPowerMana >=0 )
                {
                    playerAnimator.SetTrigger("Attack1");
@@ -63,6 +66,23 @@ namespace Player
                    resources.UseMana(earthPowerMana);
                }
            }
+            */
+            if (checkGround.IsOnPlatform())
+            {
+                if (currentEarthPlatform == null || currentEarthPlatform.gameObject != checkGround.GetCurrentPlatform())
+                {
+                    glowPoint = checkGround.GetCurrentPlatform().GetComponent<GlowAtPoint>();
+                    currentEarthPlatform = checkGround.GetCurrentPlatform().GetComponent<EarthPlatformController>();
+                }
+                glowPoint.GlowObject();
+                if (Input.GetButtonDown("Fire2") && resources.GetCurrentMana() - earthPowerMana >= 0)
+                {
+                    playerAnimator.SetTrigger("Attack1");
+                    currentEarthPlatform.ActivateMovement();
+                    resources.UseMana(earthPowerMana);
+                }
+
+            }
        }
    } 
 }

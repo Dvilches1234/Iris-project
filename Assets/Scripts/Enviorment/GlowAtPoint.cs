@@ -13,9 +13,19 @@ public class GlowAtPoint : MonoBehaviour
     private float outlineCooldown = 0.3f;
 
     private float remainingCooldown;
+    private int outlineIndex;
     private bool isOutlined = false;
+
     void Start()
     {
+        for(int i= 0; i< mesh.materials.Length; i++)
+        {
+            if (mesh.materials[i].name.Contains("OutlineMaterial"))
+            {
+                outlineIndex = i;
+                break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -34,18 +44,18 @@ public class GlowAtPoint : MonoBehaviour
 
     public void GlowObject()
     {
-        mesh.materials[1].SetFloat("_Scale", outlineScale);
+        mesh.materials[outlineIndex].SetFloat("_Scale", outlineScale);
         isOutlined = true;
         remainingCooldown = outlineCooldown;
     }
     public void GlowObjectNoCooldown()
     {
-        mesh.materials[1].SetFloat("_Scale", outlineScale);
+        mesh.materials[outlineIndex].SetFloat("_Scale", outlineScale);
         
     }
 
     public void DeactivateGlow()
     {
-        mesh.materials[1].SetFloat("_Scale", 0);
+        mesh.materials[outlineIndex].SetFloat("_Scale", 0);
     }
 }

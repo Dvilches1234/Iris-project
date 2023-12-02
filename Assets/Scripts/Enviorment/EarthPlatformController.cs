@@ -39,6 +39,7 @@ namespace Enviorment
              {
                  moving = false;
                  onTarget = !onTarget;
+                    Debug.Log("ARRIVED AT POS: " + transform.position);
              }
             }
             
@@ -52,6 +53,7 @@ namespace Enviorment
         {
             moving = true;
             targetPos = onTarget ? originalPos : targetPoint.position;
+            Debug.Log("TARGET POSISTION: " + targetPos);
         }
         
         

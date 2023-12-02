@@ -14,6 +14,11 @@ namespace Player
         private string[] walkablesTags;
         private string[] platformTags;
         private Transform parentTransform;
+        private GameObject platform;
+
+        private bool grounded = true;
+        private bool onNormalGround = true;
+        
         void Start()
         {
             playerMovement = GetComponentInParent<PlayerMovement>();
@@ -34,11 +39,15 @@ namespace Player
             
             if (walkablesTags.Contains(other.gameObject.tag) )
             {
+                grounded = true;
+                onNormalGround = true;
                 playerMovement.CheckGround(true);
             }
             if (platformTags.Contains(other.gameObject.tag))
             {
+                onNormalGround = false;
                 parentTransform.parent = other.gameObject.transform;
+                platform = other.gameObject;
             }
             else
             {
@@ -58,10 +67,21 @@ namespace Player
         {
             if (walkablesTags.Contains(other.gameObject.tag))
             {
+                onNormalGround = false;
+                grounded = false;
                 playerMovement.CheckGround(false);
             }
             
         }  
+
+        public bool IsOnPlatform()
+        {
+            return grounded && !onNormalGround;
+        }
+        public GameObject GetCurrentPlatform()
+        {
+            return platform;
+        }
     } 
     
 }
