@@ -7,9 +7,12 @@ namespace Player
     {
         [SerializeField]
         private float timeDuration = 8f;
+        [SerializeField]
+        private GameObject explotion;
         private float damage;
 
         private EnemyHealth enemyHealth;
+        
         public void SetDamage(float newDamage)
         {
             damage = newDamage;
@@ -25,12 +28,18 @@ namespace Player
         }
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Enemy"))
+            if (!other.gameObject.CompareTag("Message"))
             {
-                enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-                enemyHealth.TakeDamage(damage);
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                    enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+                    enemyHealth.TakeDamage(damage);
+                }
+                GameObject exp = Instantiate(explotion, transform);
+                exp.transform.SetParent(null);
+                Destroy(gameObject);
+                
             }
-            Destroy(gameObject);
         }
 
 

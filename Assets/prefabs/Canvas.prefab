@@ -170,8 +170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -422.5, y: -214.05}
-  m_SizeDelta: {x: -845, y: -479.11}
+  m_AnchoredPosition: {x: -825.3485, y: -446.3145}
+  m_SizeDelta: {x: -1650.697, y: -943.639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8619712120078188175
 CanvasRenderer:
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 7167330946640961188}
   m_Layer: 5
   m_Name: AlertText
-  m_TagString: AlertText
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -558,10 +558,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 2520278695105413283}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: AlertText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -767,8 +767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -35.0365, y: -216.29144}
-  m_SizeDelta: {x: -577.175, y: -524.4171}
+  m_AnchoredPosition: {x: 0, y: -446.31}
+  m_SizeDelta: {x: -761.4019, y: -943.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3462549015358673957
 CanvasRenderer:

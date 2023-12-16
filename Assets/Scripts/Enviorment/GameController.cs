@@ -46,7 +46,13 @@ namespace Enviorment
             }
 
             playerTransform.position = spawnPoint.position;
-            pointsController.Reset();
+            //pointsController.Reset();
+            playerResources.Reset();
+        }
+
+        public void SetNewSpawnPoint(Transform newSpawnPoint)
+        {
+            spawnPoint = newSpawnPoint;
         }
     }
 }

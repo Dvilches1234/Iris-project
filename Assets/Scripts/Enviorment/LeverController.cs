@@ -26,7 +26,7 @@ namespace Enviorment
       // Update is called once per frame
       void Update()
       {
-          if (nearPlayer && Input.GetButtonDown("Fire2"))
+          if (nearPlayer && Input.GetButtonDown("Action"))
           {
               animator.SetTrigger("ActivateLever");
               actionController.Action();

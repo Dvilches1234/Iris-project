@@ -11,6 +11,7 @@ TagManager:
   - AlertText
   - Key
   - Lever
+  - Message
   layers:
   - Default
   - TransparentFX

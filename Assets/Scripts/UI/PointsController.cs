@@ -24,18 +24,40 @@ namespace UI
         [SerializeField]
         private GameObject winText;
 
+        [Header("Scene Management")]
+        [SerializeField]
+        private SceneController sceneController;
+
         private int actualGems = 0;
         int actualKeys = 0;
+        private bool won = false;
+        private float wonTime = 3f;
         
         void Start()
         {
-        
+            if (PlayerPrefsController.IsASave())
+            {
+                int[] points = PlayerPrefsController.GetPlayerPoints();
+                actualKeys = points[0];
+                actualGems = points[1];
+                
+                keysText.text = actualKeys + "/" + totalKeys;
+                
+                gemsText.text = actualGems + "/" + totalGems;
+            }
         }
 
         // Update is called once per frame
         void Update()
         {
-        
+            if (won)
+            {
+                wonTime -= Time.deltaTime;
+                if (wonTime <= 0)
+                {
+                    sceneController.NextLevel();
+                }
+            }
         }
 
         public void AddKey()
@@ -57,6 +79,7 @@ namespace UI
             if (actualGems == totalGems)
             {
                 winText.SetActive(true);
+                won = true;
             }
         }
 
@@ -68,7 +91,18 @@ namespace UI
             keysText.text = actualKeys + "/" + totalKeys;
             gemsText.text = actualGems + "/" + totalGems;
         }
-        
+
+        public bool KeysTaken()
+        {
+            return actualKeys >= totalKeys;
+        }
+        public int[] GetPoints()
+        {
+            int[] points = new int[2];
+            points[0] = actualKeys;
+            points[1] = actualGems;
+            return points;
+        }
         
     }   
 }

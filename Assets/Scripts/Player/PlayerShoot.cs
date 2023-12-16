@@ -18,6 +18,8 @@ namespace Player
         private GameObject magicBall;
         [SerializeField]
         private Animator playerAnimator;
+        [SerializeField]
+        private AudioClip shootSound;
         
         private Vector3 direction;
         private float distance;
@@ -26,11 +28,13 @@ namespace Player
         private GameObject newBall;
         private Transform ballTransform;
         private MagicBallController ballController;
+        private AudioSource source;
         private bool isCooldown = false;
         private float remainingCooldown;
 
         private void Start()
         {
+            source = GetComponent<AudioSource>();
             distance = Vector3.Distance(shootingPoint.position, playerBack.position);
 
         }
@@ -51,7 +55,9 @@ namespace Player
         {
             if (Input.GetButtonDown("Fire1") && !isCooldown)
             {
-                
+                source.clip = shootSound;
+                source.Play();
+                    
                 playerAnimator.SetTrigger("Attack1");
                  direction = shootingPoint.position  - playerBack.position;
                  direction = direction.normalized;

@@ -11,11 +11,13 @@ namespace Enviorment
         private Transform targetPoint;
         [SerializeField]
         private float movementSpeed = 10f;
+        [SerializeField]
+        private float timeOnTarget = 5f;
         private Vector3 originalPos;
 
         private bool onTarget = false;
         private bool moving = false;
-
+        private float remainingTime;
         private Vector3 targetPos;
         
         // Start is called before the first frame update
@@ -28,6 +30,15 @@ namespace Enviorment
         void Update()
         {
             Move();
+            if (onTarget)
+            {
+                remainingTime -= Time.deltaTime;
+                if (remainingTime <= 0)
+                {
+                    ActivateMovement();
+                    
+                }
+            }
         }
 
         void Move()
@@ -39,7 +50,8 @@ namespace Enviorment
              {
                  moving = false;
                  onTarget = !onTarget;
-                    Debug.Log("ARRIVED AT POS: " + transform.position);
+                 remainingTime = timeOnTarget;
+
              }
             }
             
@@ -48,12 +60,19 @@ namespace Enviorment
         {
         
         }
+        public bool IsOnTarget()
+        {
+            return transform.position == targetPos;
+        }
 
+        public bool HasPlayer()
+        {
+            return transform.childCount > 0;
+        }
         public void ActivateMovement()
         {
             moving = true;
             targetPos = onTarget ? originalPos : targetPoint.position;
-            Debug.Log("TARGET POSISTION: " + targetPos);
         }
         
         

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using UI;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -54,6 +55,10 @@ namespace  Player
             playerRigidBody = GetComponent<Rigidbody>();
             Cursor.visible = false;
             freeLook.ForceCameraPosition(initialCamTransform.position, initialCamTransform.rotation);
+            if (PlayerPrefsController.IsASave())
+            {
+                transform.position = PlayerPrefsController.GetPlayerPos();
+            }
             
         }
 

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 415746108271685897}
   - component: {fileID: 1564016027664299365}
-  - component: {fileID: 6775082651948497433}
-  - component: {fileID: -2918950013833177842}
+  - component: {fileID: 6686594605101791653}
+  - component: {fileID: 6171673312731697568}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6775082651948497433
+--- !u!114 &6686594605101791653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!114 &-2918950013833177842
+--- !u!114 &6171673312731697568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1735089557604804762}
-  - component: {fileID: -3899809438456165495}
+  - component: {fileID: -2386951297600192081}
   m_Layer: 0
   m_Name: BottomRig
   m_TagString: Untagged
@@ -160,7 +160,7 @@ Transform:
   - {fileID: 7842084587873383707}
   m_Father: {fileID: 4200279661401235372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3899809438456165495
+--- !u!114 &-2386951297600192081
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,6 +198,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -273,6 +280,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -343,9 +357,9 @@ MonoBehaviour:
     m_Radius: 6
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
-  - {fileID: -7578076268367247088}
-  - {fileID: -4468430210252387938}
-  - {fileID: -3899809438456165495}
+  - {fileID: -32239611159308807}
+  - {fileID: 3876996664564258336}
+  - {fileID: -2386951297600192081}
 --- !u!1 &1941296398560788740
 GameObject:
   m_ObjectHideFlags: 3
@@ -355,7 +369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9182931254358055352}
-  - component: {fileID: -7578076268367247088}
+  - component: {fileID: -32239611159308807}
   m_Layer: 0
   m_Name: TopRig
   m_TagString: Untagged
@@ -379,7 +393,7 @@ Transform:
   - {fileID: 8223644182466808328}
   m_Father: {fileID: 4200279661401235372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7578076268367247088
+--- !u!114 &-32239611159308807
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -417,6 +431,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -434,7 +455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3072898190555555829}
-  - component: {fileID: -4468430210252387938}
+  - component: {fileID: 3876996664564258336}
   m_Layer: 0
   m_Name: MiddleRig
   m_TagString: Untagged
@@ -458,7 +479,7 @@ Transform:
   - {fileID: 415746108271685897}
   m_Father: {fileID: 4200279661401235372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4468430210252387938
+--- !u!114 &3876996664564258336
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -496,6 +517,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -514,8 +542,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8223644182466808328}
   - component: {fileID: 3924920363228000813}
-  - component: {fileID: 3430572261345972495}
-  - component: {fileID: 5920989583746731441}
+  - component: {fileID: -1423211225511068405}
+  - component: {fileID: 4011875774128806067}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -550,7 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3430572261345972495
+--- !u!114 &-1423211225511068405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -604,7 +632,7 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!114 &5920989583746731441
+--- !u!114 &4011875774128806067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -641,8 +669,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7842084587873383707}
   - component: {fileID: 1584475338999337573}
-  - component: {fileID: 3624339261631484610}
-  - component: {fileID: -8351634924350455932}
+  - component: {fileID: 7962290545251092702}
+  - component: {fileID: 6899806524031964591}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -677,7 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3624339261631484610
+--- !u!114 &7962290545251092702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -731,7 +759,7 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!114 &-8351634924350455932
+--- !u!114 &6899806524031964591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

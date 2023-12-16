@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2047255045843693439}
   - component: {fileID: 3307464318547328768}
   - component: {fileID: 8007107902139512148}
+  - component: {fileID: 6479720345976678391}
   m_Layer: 0
   m_Name: PointController
   m_TagString: PointController
@@ -51,6 +52,7 @@ MonoBehaviour:
   totalGems: 1
   gemsText: {fileID: 0}
   winText: {fileID: 0}
+  sceneController: {fileID: 0}
 --- !u!114 &8007107902139512148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,3 +69,17 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   playerResources: {fileID: 0}
   pointsController: {fileID: 3307464318547328768}
+--- !u!114 &6479720345976678391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203581881227531486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7345b910eb54008b4f0915b166c1c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoTextPanel: {fileID: 0}
+  infoText: {fileID: 0}

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Enviorment;
 using UnityEditor.UIElements;
 using UnityEngine;
-
+using UI;
 namespace Player
 {
     public class PlayerResources:MonoBehaviour
@@ -26,10 +26,26 @@ namespace Player
         private float manaPercentage;
         public void Start()
         {
-            currentHealth = totalHealth;
-            currentMana = totalMana;
-            healthProgressBar.BarValue = 100;
-            manaProgressBar.BarValue = 100;
+            if (PlayerPrefsController.IsASave())
+            {
+                float[] resources = PlayerPrefsController.GetPlayerResources();
+                currentHealth = resources[0];
+                currentMana = resources[1];
+                
+                healthPercentage = currentHealth * 100 / totalHealth;
+                healthProgressBar.BarValue = healthPercentage;
+                
+                manaPercentage = currentMana * 100 / totalMana;
+                manaProgressBar.BarValue = manaPercentage;
+            }
+            else
+            {
+                currentHealth = totalHealth;
+                currentMana = totalMana;
+                healthProgressBar.BarValue = 100;
+                manaProgressBar.BarValue = 100;
+                
+            }
 
         }
 
@@ -98,6 +114,16 @@ namespace Player
         public float GetCurrentMana()
         {
             return currentMana;
+        }
+        public float GetCurrentHealth()
+        {
+            return currentHealth;
+        }
+
+        public void Reset()
+        {
+            currentMana = totalMana;
+            currentHealth = totalHealth;
         }
 
 

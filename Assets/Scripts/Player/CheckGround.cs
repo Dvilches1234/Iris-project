@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Enviorment;
 using UnityEngine;
 
 namespace Player
@@ -15,7 +16,7 @@ namespace Player
         private string[] platformTags;
         private Transform parentTransform;
         private GameObject platform;
-
+        private EarthPlatformController platformController;
         private bool grounded = true;
         private bool onNormalGround = true;
         
@@ -48,6 +49,7 @@ namespace Player
                 onNormalGround = false;
                 parentTransform.parent = other.gameObject.transform;
                 platform = other.gameObject;
+                platformController = platform.GetComponent<EarthPlatformController>();
             }
             else
             {

@@ -14,28 +14,29 @@ namespace Player
        [SerializeField]
        private Animator playerAnimator;
        [SerializeField]
-       private float range = 15f;
-       [SerializeField]
        private LayerMask groundLayer;
        [SerializeField]
        private LayerMask earthPlatformLayer;
         [SerializeField]
-        private CheckGround checkGround; 
-       [Header("EarthPowers")]
+        private CheckGround checkGround;
+        [Header("EarthPowers")]
+        [SerializeField]
+        private AudioClip activatePlatformSound;
        [SerializeField]
        private float earthPowerMana = 1;
        private RaycastHit hit;
-
+       
        private Vector3 direction;
 
        private EarthPlatformController currentEarthPlatform;
        private GlowAtPoint glowPoint;
        private PlayerResources resources;
+       private AudioSource source;
        // Start is called before the first frame update
        void Start()
        {
            resources = GetComponent<PlayerResources>();
-           
+           source = GetComponent<AudioSource>();
        }
    
        // Update is called once per frame
@@ -67,7 +68,7 @@ namespace Player
                }
            }
             */
-            if (checkGround.IsOnPlatform())
+            if (checkGround. IsOnPlatform())
             {
                 if (currentEarthPlatform == null || currentEarthPlatform.gameObject != checkGround.GetCurrentPlatform())
                 {
@@ -77,6 +78,8 @@ namespace Player
                 glowPoint.GlowObject();
                 if (Input.GetButtonDown("Fire2") && resources.GetCurrentMana() - earthPowerMana >= 0)
                 {
+                    source.clip = activatePlatformSound;
+                    source.Play();
                     playerAnimator.SetTrigger("Attack1");
                     currentEarthPlatform.ActivateMovement();
                     resources.UseMana(earthPowerMana);
