@@ -6,13 +6,20 @@ namespace Enemy
     public class AttackPlayer : MonoBehaviour
     {
         [SerializeField]
-        float attackCooldown = 0.7f;
+        float attackCooldown = 1f;
         [SerializeField]
         private float damage = 1f;
-
+        [SerializeField]
+        private AudioClip attackSound;
+        [SerializeField]
+        private AudioSource source;
         private float remainingCooldown;
         private bool isCooldown = false;
         private PlayerResources playerResources;
+
+        private void Start()
+        {
+        }
         private void Update()
         {
             if (isCooldown)
@@ -29,7 +36,8 @@ namespace Enemy
         {
             if (other.CompareTag("Player") && !isCooldown)
             {
-                Debug.Log("attacking");
+                source.clip = attackSound;
+                source.Play();
                 playerResources = other.gameObject.GetComponent<PlayerResources>();
                 playerResources.TakeDamage(damage);
                 isCooldown = true;
