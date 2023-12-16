@@ -26,8 +26,9 @@ namespace Enviorment
             if (other.CompareTag("Player"))
             {
                 pointsController.AddKey();
+
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 }

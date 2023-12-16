@@ -26,7 +26,7 @@ namespace Player
         private float manaPercentage;
         public void Start()
         {
-            if (PlayerPrefsController.IsASave())
+            if (PlayerPrefsController.IsASave() && PlayerPrefsController.IsOnLevel())
             {
                 float[] resources = PlayerPrefsController.GetPlayerResources();
                 currentHealth = resources[0];
@@ -124,6 +124,11 @@ namespace Player
         {
             currentMana = totalMana;
             currentHealth = totalHealth;
+            healthPercentage = currentHealth * 100 / totalHealth;
+            healthProgressBar.BarValue = healthPercentage;
+
+            manaPercentage = currentMana * 100 / totalMana;
+            manaProgressBar.BarValue = manaPercentage;
         }
 
 

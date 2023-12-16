@@ -37,6 +37,8 @@ namespace Player
                 }
                 GameObject exp = Instantiate(explotion, transform);
                 exp.transform.SetParent(null);
+                exp.GetComponent<ParticleSystem>().Play();
+                //Debug.Break();
                 Destroy(gameObject);
                 
             }

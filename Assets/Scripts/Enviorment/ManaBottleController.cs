@@ -7,7 +7,7 @@ using UnityEngine;
 public class ManaBottleController : MonoBehaviour
 {
     [SerializeField]
-    private float manaRecover = 2;
+    private float manaRecover = 5;
     private PlayerResources resources;
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +15,7 @@ public class ManaBottleController : MonoBehaviour
         {
             resources = other.gameObject.GetComponent<PlayerResources>();
             resources.RecoverMana(manaRecover);
+            resources.Heal(manaRecover);
             Destroy(gameObject);
         }
     }

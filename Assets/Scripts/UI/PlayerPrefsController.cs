@@ -12,6 +12,8 @@ namespace UI
         private static int sceneIndex;
         private static Vector3 playerPos;
 
+        private static bool onLevel = false;
+
         public static void SavePlayerPos(Vector3 newPos)
         {
             playerPos = newPos;
@@ -100,6 +102,16 @@ namespace UI
         public static void Delete()
         {
             PlayerPrefs.DeleteAll();
+        }
+
+        public static void SetOnLevel(bool newStatus) 
+        {
+            onLevel = newStatus;
+        }
+
+        public static bool IsOnLevel()
+        {
+            return onLevel;
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UI;
 namespace Enviorment
 {
     public class NewSpawnPoint : MonoBehaviour
@@ -12,6 +13,8 @@ namespace Enviorment
             if (other.gameObject.CompareTag("Player"))
             {
                 gameController.SetNewSpawnPoint(transform);
+                AlertText.AlertMessage("Nuevo checkpoint alcanzado");
+                
             }
         }
     }

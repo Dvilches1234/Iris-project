@@ -13,6 +13,7 @@ namespace UI
         public void NextLevel()
         {
             PlayerPrefsController.SaveSceneIndex(SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefsController.SetOnLevel(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         public void NewGame()
@@ -36,6 +37,7 @@ namespace UI
         {
             if (PlayerPrefsController.IsASave())
             {
+                PlayerPrefsController.SetOnLevel(true);
                 SceneManager.LoadScene(PlayerPrefsController.GetSceneIndex());
             }
             else

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4298592023982857087}
   m_Layer: 6
   m_Name: Floating Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPoint: {fileID: 0}
   movementSpeed: 10
+  timeOnTarget: 5
 --- !u!114 &4298592023982857087
 MonoBehaviour:
   m_ObjectHideFlags: 0

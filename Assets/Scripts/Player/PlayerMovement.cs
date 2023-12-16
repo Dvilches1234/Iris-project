@@ -55,9 +55,10 @@ namespace  Player
             playerRigidBody = GetComponent<Rigidbody>();
             Cursor.visible = false;
             freeLook.ForceCameraPosition(initialCamTransform.position, initialCamTransform.rotation);
-            if (PlayerPrefsController.IsASave())
+            if (PlayerPrefsController.IsASave() && PlayerPrefsController.IsOnLevel())
             {
                 transform.position = PlayerPrefsController.GetPlayerPos();
+
             }
             
         }

@@ -59,17 +59,19 @@ namespace Player
                 source.Play();
                     
                 playerAnimator.SetTrigger("Attack1");
-                 direction = shootingPoint.position  - playerBack.position;
-                 direction = direction.normalized;
-                 newBall = Instantiate(magicBall, shootingPoint);
-                 ballRigidyBody = newBall.GetComponent<Rigidbody>();
-                 ballTransform = newBall.GetComponent<Transform>();
-                 ballController = newBall.GetComponent<MagicBallController>();
-                 ballTransform.SetParent(null);
-                 ballRigidyBody.velocity = direction * ballSpeed;
-                 ballController.SetDamage(damage);
-                 isCooldown = true;
-                 remainingCooldown = shootCooldown;
+                direction = shootingPoint.position  - playerBack.position;
+                direction = direction.normalized;
+                direction.y = 0;
+                Debug.Log(direction);
+                newBall = Instantiate(magicBall, shootingPoint);
+                ballRigidyBody = newBall.GetComponent<Rigidbody>();
+                ballTransform = newBall.GetComponent<Transform>();
+                ballController = newBall.GetComponent<MagicBallController>();
+                ballTransform.SetParent(null);
+                ballRigidyBody.velocity = direction * ballSpeed;
+                ballController.SetDamage(damage);
+                isCooldown = true;
+                remainingCooldown = shootCooldown;
                  
             }
         }

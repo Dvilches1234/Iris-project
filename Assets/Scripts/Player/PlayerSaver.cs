@@ -40,6 +40,8 @@ namespace Player
             points = pointsController.GetPoints();
             PlayerPrefsController.SavePlayerPoints(points[0], points[1]);
             PlayerPrefsController.SavePlayerResources(resources.GetCurrentHealth(), resources.GetCurrentMana());
+
+            PlayerPrefsController.SetOnLevel(true);
         }
         
         

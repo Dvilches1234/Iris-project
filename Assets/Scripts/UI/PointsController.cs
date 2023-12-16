@@ -35,7 +35,7 @@ namespace UI
         
         void Start()
         {
-            if (PlayerPrefsController.IsASave())
+            if (PlayerPrefsController.IsASave() && PlayerPrefsController.IsOnLevel())
             {
                 int[] points = PlayerPrefsController.GetPlayerPoints();
                 actualKeys = points[0];
@@ -44,6 +44,11 @@ namespace UI
                 keysText.text = actualKeys + "/" + totalKeys;
                 
                 gemsText.text = actualGems + "/" + totalGems;
+                if (actualKeys >= totalKeys)
+                {
+
+                    gem.SetActive(true);
+                }
             }
         }
 
@@ -65,7 +70,7 @@ namespace UI
             actualKeys += 1;
             
             keysText.text = actualKeys + "/" + totalKeys;
-            if (actualKeys == totalKeys)
+            if (actualKeys >= totalKeys)
             {
                 
                 gem.SetActive(true);
